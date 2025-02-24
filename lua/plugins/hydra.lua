@@ -62,8 +62,7 @@ return {
          body = '<Leader>d',
          heads = {
             { "U", function() require("dapui").toggle() end},
-            { "z", function() require("dap").toggle_breakpoint() end },
-            { "Z", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end },
+            { "=", function() require("dap").toggle_breakpoint() end },
             { ">", function() if vim.bo.filetype ~= "dap-float" then require("dap").continue() end end},
             { "K", function() if vim.bo.filetype ~= "dap-float" then require("dap").step_back() end end},
             { "H", function() if vim.bo.filetype ~= "dap-float" then require("dap").step_out() end end},

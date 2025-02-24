@@ -27,9 +27,6 @@ map("n", "<leader>b", "<cmd> enew <CR>", {desc = "open new buffer", noremap = tr
 map("n", "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "Copy File Name" })
 map("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy File Path" })
 
--- Select all
-map("n", "==", "gg<S-v>G")
-
 map('x', 'p', 'pgvy')
 
 map("n", "<C-s>", "<cmd> w <CR>", { noremap = true, silent = true })
