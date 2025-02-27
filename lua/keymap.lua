@@ -31,5 +31,5 @@ map('x', 'p', 'pgvy')
 
 map("n", "<C-s>", "<cmd> w <CR>", { noremap = true, silent = true })
 map("n", "<C-q>", "<cmd> q <CR>", { noremap = true, silent = true })
-map("n", "<space>e", ":Telescope file_browser<CR>")
-map("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+map("n", "<space>fe", ":Telescope file_browser<CR>")
+map("n", "<space>fv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
