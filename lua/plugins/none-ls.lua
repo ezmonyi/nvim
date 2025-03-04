@@ -9,7 +9,6 @@ return {
 			ensure_installed = {
 				"stylua", -- lua formatter
 				"ruff", -- Python linter and formatter
-				"prettier", -- web languages
 				"python-lsp-server", -- pylsp
 				"debugpy",
 			},

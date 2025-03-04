@@ -10,7 +10,7 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
-          file_ignore_patterns = { "%.git/", "%.o$", "%.out$", "%.class$", "%.cache$", "%.log$", "%.tmp$", "%.jpg$", "%.png$", "%.zip$", "%.pt$", "%.pth"},
+          file_ignore_patterns = { "%.git/", "%.o$", "%.out$"},
         },
         extensions = {
           ["ui-select"] = {

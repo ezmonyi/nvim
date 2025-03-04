@@ -7,20 +7,10 @@ return {
 		"nvim-lualine/lualine.nvim",
 	},
 	config = function()
-		local dap = require("dap")
-		--
-		-- Run last: https://github.com/mfussenegger/nvim-dap/issues/1025
-		local last_config = nil
-		---@param session Session
-		dap.listeners.after.event_initialized["store_config"] = function(session)
-			last_config = session.config
-		end
-
 		local Hydra = require("hydra")
 
 		DapHydra = Hydra({
 			name = "DEBUG",
-			hint = hint,
 			config = {
 				color = "pink",
 				desc = "Debug mode",
