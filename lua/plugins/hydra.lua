@@ -34,7 +34,7 @@ return {
 					end,
 				},
 				{
-					"=",
+					".",
 					function()
 						require("dap").toggle_breakpoint()
 					end,
@@ -92,7 +92,7 @@ return {
 						require("dap").run_to_cursor()
 					end,
 				},
-				{ "<Esc>", nil, { exit = true, nowait = true } },
+				{ "<Leader>d", nil, { exit = true, nowait = true } },
 			},
 		})
 	end,

@@ -12,8 +12,6 @@ return {
     --
     --Setup status line for Hydra
     local hydra_statusline = require("hydra.statusline")
-    local dapui = require("dapui")
-    local dap = require("dap")
 
     require("lualine").setup({
       options = {
@@ -43,11 +41,5 @@ return {
       }
     })
 
-    --- Setup DapUi
-    vim.api.nvim_command 'autocmd FileType dap-float nnoremap <buffer><silent> <q> <cmd>close!<CR>'
-    dapui.setup()
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    dap.listeners.before.event_exited['dapui_config'] = dapui.close
   end,
 }
