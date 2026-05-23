@@ -15,6 +15,31 @@ return {
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
 
+      cmp.event:on("confirm_done", function(event)
+        local entry = event.entry
+        if not entry or not entry.source or entry.source.name ~= "nvim_lsp" then
+          return
+        end
+
+        local item = entry:get_completion_item() or {}
+        local inserted = (item.textEdit and item.textEdit.newText) or item.insertText or item.word or item.label or ""
+        if not inserted:find("\\/", 1, true) and not inserted:match("/$") then
+          return
+        end
+
+        vim.schedule(function()
+          local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+          local line = vim.api.nvim_get_current_line()
+          local before = line:sub(1, col)
+          if before:sub(-2) ~= "\\/" then
+            return
+          end
+
+          vim.api.nvim_set_current_line(before:sub(1, -3) .. "/" .. line:sub(col + 1))
+          vim.api.nvim_win_set_cursor(0, { row, col - 1 })
+        end)
+      end)
+
       cmp.setup({
         snippet = {
           expand = function(args)
